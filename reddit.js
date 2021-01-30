@@ -47,7 +47,7 @@ const getRedditPost = async (term) => {
 			}
 		}
 	}
-
+	
 	return posts;
 }
 
@@ -55,7 +55,7 @@ const getRedditPost = async (term) => {
 /***
  * Retrieve subreddit data given name found in URL
  */
-const getSubredditInfo = (subName) => {
+const getSubredditInfo = async (subName) => {
 	/* Get all subreddit data */
 	const res = await fetch(`https://old.reddit.com/r/${subName}/about.json`);
 	const data = await res.json();
