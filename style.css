@@ -1,0 +1,11 @@
+.carddd {
+    background-color: rgba(189, 12, 12, 0.9)9);
+    color: green;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 30px;
+    width: 100%;
+    border-radius: 10px;
+}
