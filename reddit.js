@@ -45,12 +45,10 @@ const getRedditPost = async (term) => {
 			if (posts.length == 5) {
 				return posts;
 			}
-
 		}
 	}
 
 	return posts;
-
 }
 
 
