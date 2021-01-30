@@ -49,14 +49,15 @@ function createSectionHead(_title, _color, _logo){
 
     /// Fill in body / Content
     title.textContent = _title;
+    title.setAttribute("class", "sectionTitle");
     var imgURL = chrome.runtime.getURL(_logo);
     logo.setAttribute("class", "sectionLogo");
     logo.setAttribute("src", imgURL);
-    
 
     /// Build Card
     card.appendChild(logo);
     card.appendChild(title);
+
     return card;
 }
 
