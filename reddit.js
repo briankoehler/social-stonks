@@ -72,3 +72,5 @@ const getSubredditInfo = async (subName) => {
 		primaryColor: data['data']['primary_color']
 	}
 }
+
+export { getRedditPosts, getSubredditInfo };

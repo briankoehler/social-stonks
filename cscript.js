@@ -1,3 +1,7 @@
+import { getRedditPosts, getSubredditInfo } from './reddit.js';
+import { getTwitter } from './twitter.js';
+
+console.log(getTwitter('GME'));
 
 const main = document.querySelector('body');
 const thing = document.getElementById('rhs'); //can also do rhs
