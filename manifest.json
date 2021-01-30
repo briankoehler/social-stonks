@@ -1,26 +1,25 @@
 {
-    "name": "Getting Started Example",
-    "description": "Build an Extension!",
-    "version": "1.0",
-    "manifest_version": 3,
-    "background": {
-      "service_worker": "background.js"
-    },
-    "permissions": ["storage", "activeTab", "scripting", "tabs"],
-    "action": {
-      "default_popup": "popup.html"
-    },
-    "options_page": "options.html",
-    "content_scripts": [
-      {
-        "matches":["https://www.google.com/search*"],
-        "js":["cscript.js"],
-        "css":["style.css"]
-      }
-    ],
-    "web_accessible_resources": [{
-      "resources": ["icons\\Logo_blue.svg"],
-      "matches":["https://www.google.com/search*"]
-
-    }]
-  }
+  "name": "Getting Started Example",
+  "description": "Build an Extension!",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting", "tabs"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches":["https://www.google.com/search*"],
+      "js":["cscript.js"],
+      "css":["style.css"]
+    }
+  ],
+  "web_accessible_resources": [{
+    "resources": ["images/*.svg", "images/*.png"],
+    "matches":["https://www.google.com/search*"]
+  }]
+}

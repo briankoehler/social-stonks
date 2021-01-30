@@ -20,12 +20,12 @@ dacardr2 = createBlock("Titleeeee","I am another popular Social Media Post! look
 var stack = [
     mainTitle,
     line(),
-    createSectionHead("twitter", "", ""),
+    createSectionHead("twitter", "", "icons/twit.svg"),
     dacardt0,
     dacardt1,
     dacardt2,
     line(),
-    createSectionHead("reddit", "", ""),
+    createSectionHead("reddit", "", "icons/redit.svg"),
     dacardr,
     dacardr2
 ]
@@ -37,10 +37,11 @@ function line(){
     l.setAttribute("class", "line");
     return l;
 }
+
 function createSectionHead(_title, _color, _logo){
     /// Create elements
     const card = document.createElement('div');
-    const logo = document.createElement('svg');
+    const logo = document.createElement('img');
     const title = document.createElement('h2');
 
     /// Set styles / Attributes
@@ -48,7 +49,10 @@ function createSectionHead(_title, _color, _logo){
 
     /// Fill in body / Content
     title.textContent = _title;
-    logo.setAttribute("src", "icons/Logo_blue.svg")
+    var imgURL = chrome.runtime.getURL(_logo);
+    logo.setAttribute("class", "sectionLogo");
+    logo.setAttribute("src", imgURL);
+    
 
     /// Build Card
     card.appendChild(logo);
@@ -59,7 +63,7 @@ function createSectionHead(_title, _color, _logo){
 function createBlock(_title, _deets, _popmet, _Author, _date, _url, _plat){
     /// Create elements
     const card = document.createElement('div');
-    const logo = document.createElement('picture');
+    const logo = document.createElement('img');
     const content = document.createElement('div');
     const title = document.createElement('h2');
     const deets = document.createElement('p');

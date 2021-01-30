@@ -37,7 +37,10 @@
     box-sizing: border-box;
     overflow: hidden;
     width: 100%;
-
     border-radius: 10px;
     border: 1px solid rgba(0, 132, 255, 0.5);
+}
+
+.sectionLogo {
+
 }
