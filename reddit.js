@@ -2,7 +2,7 @@
 /***
  * Retrieve reddit post data from best post relating to search term
  */
-const searchReddit = async (term) => {
+const getRedditPost = async (term) => {
 
 	/* Get best posts from Reddit  */
 	const res = await fetch('https://old.reddit.com/best.json');
@@ -15,8 +15,8 @@ const searchReddit = async (term) => {
 		// if (terms.some(substring => posts[post]['data']['title'].toLowerCase().includes(substring))) {
 		if (posts[post]['data']['title'].toLowerCase().includes(term)) {
 
-			/* Assigning relevant post data to an object to return */
-			let postData = {
+			/* Return object with relevant post data */
+			return {
 				title: posts[post]['data']['title'],
 				author: posts[post]['data']['author'],
 				content: posts[post]['data']['selftext'],
@@ -26,8 +26,6 @@ const searchReddit = async (term) => {
 				utc: posts[post]['data']['created_utc'],
 				thumbnail: posts[post]['data']['thumbnail']
 			}
-
-			return postData;
 			
 		}
 	}
