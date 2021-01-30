@@ -12,29 +12,50 @@ thing.insertBefore(base, thing.childNodes[0]);
 const mainTitle = document.createElement('h2');
 mainTitle.textContent = "Trending Now";
 
-// twittersec =  createSectionHead("twitter", "", "");
-dacardt0 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
-dacardt1 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
-dacardt2 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
+let twittersec =  createSectionHead("twitter", "", 1);
+// dacardt0 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
+// dacardt1 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
+// dacardt2 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
 
-// redditsec = createSectionHead("reddit", "", "");
-dacardr = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 0);
-dacardr2 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 0);
+let redditsec = createSectionHead("reddit", "", 0);
+// dacardr = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 0);
+// dacardr2 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 0);
 
-var stack = [
-    mainTitle,
-    line(),
-    createSectionHead("twitter", "", "images/twit.svg"),
-    dacardt0,
-    dacardt1,
-    dacardt2,
-    line(),
-    createSectionHead("reddit", "", "images/redit.svg"),
-    dacardr,
-    dacardr2
-]
-stack.forEach((thing)=>{base.appendChild(thing);})
+// var stack = [
+//     mainTitle,
+//     line(),
+//     createSectionHead("twitter", "", "images/twit.svg"),
+//     dacardt0,
+//     dacardt1,
+//     dacardt2,
+//     line(),
+//     createSectionHead("reddit", "", "images/redit.svg"),
+//     dacardr,
+//     dacardr2
+// ]
+// stack.forEach((thing)=>{base.appendChild(thing);})
 
+base.appendChild(mainTitle);
+base.appendChild(line());
+base.appendChild(twittersec);
+
+getTwitter('GME').forEach((tweet)=>{
+    base.appendChild(
+        createBlock(
+            tweet.username,
+            tweet.profile_pic,
+            "",
+            tweet.text,
+            "",
+            "",
+            tweet.retweet_count,
+            tweet.reply_count,
+            tweet.like_count,
+            1
+        )
+    )
+})
+base.appendChild(redditsec);
 
 function line(){
     l = document.createElement('div');
@@ -42,7 +63,7 @@ function line(){
     return l;
 }
 
-function createSectionHead(_title, _color, _logo){
+function createSectionHead(_title, _color, _plat){
     /// Create elements
     const card = document.createElement('div');
     const logo = document.createElement('img');
@@ -54,7 +75,9 @@ function createSectionHead(_title, _color, _logo){
     /// Fill in body / Content
     title.textContent = _title;
     title.setAttribute("class", "sectionTitle");
-    var imgURL = chrome.runtime.getURL(_logo);
+
+    var imgURL = document.getElementById('cscript').getAttribute((_plat === 0)?'reditlogo':'twitlogo');
+    
     logo.setAttribute("class", "sectionLogo");
     logo.setAttribute("src", imgURL);
 

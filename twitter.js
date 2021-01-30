@@ -25,16 +25,25 @@ const getTwitter = (term) => {
 		const zip = (a, b) => a.map((k, i) => [k, b[i]]);
 		let queried_tweets = data.data;
 		let queried_users = data.includes.users;
-		let zipped_tweets = (zip(queried_tweets,queried_users));
+        // let zipped_tweets = (zip(queried_tweets,queried_users));
 
-		zipped_tweets.forEach(tweet => {
+		queried_tweets.forEach(tweet => {
+
+            let author;
+        
+            queried_users.forEach(person =>{
+                if( tweet.author_id === person.id){
+                    author = person;
+                }
+            })
+
 			let tweetData = {
-				username: tweet[1].username,
-				profile_pic: tweet[1].profile_image_url,
-				text: tweet[0].text,
-				retweet_count: tweet[0].public_metrics.retweet_count,
-				reply_count: tweet[0].public_metrics.reply_count,
-				like_count: tweet[0].public_metrics.like_count,
+				username: author.username,
+				profile_pic: author.profile_image_url,
+				text: tweet.text,
+				retweet_count: tweet.public_metrics.retweet_count,
+				reply_count: tweet.public_metrics.reply_count,
+				like_count: tweet.public_metrics.like_count,
 			}
 			return_tweets.push(tweetData);
 		});
