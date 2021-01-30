@@ -46,3 +46,7 @@ const getRedditPosts = async (term) => {
 	}
 	return posts;
 }
+
+console.log("here");
+console.log(getRedditPosts("chungus").then);
+
