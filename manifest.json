@@ -17,5 +17,10 @@
         "js":["cscript.js"],
         "css":["style.css"]
       }
-    ]
+    ],
+    "web_accessible_resources": [{
+      "resources": ["icons\\Logo_blue.svg"],
+      "matches":["https://www.google.com/search*"]
+
+    }]
   }

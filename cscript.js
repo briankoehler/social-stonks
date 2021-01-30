@@ -1,38 +1,46 @@
-// const card = document.createElement('div');
+
 const main = document.querySelector('body');
 const thing = document.getElementById('rhs'); //can also do rhs
 const base = document.createElement('div');
 base.setAttribute("class", "baseContainer");
+thing.insertBefore(base, thing.childNodes[0]);
 
 const mainTitle = document.createElement('h2');
 mainTitle.textContent = "Trending Now";
 
-dacard = createBlock("Titleee","I am a popular Social Media Post! look at me!", "54", "", "");
-dacard2 = createBlock("Titleeeee","I am another popular Social Media Post! look at me!", "45", "", "");
-dacard3 = createBlock("Titleeeee","I am another popular Social Media Post! look at me!", "45", "", "");
-twittersec = createSectionHead("twitter", "", "");
-line = document.createElement('div');
-line.setAttribute("class", "line");
+// twittersec =  createSectionHead("twitter", "", "");
+dacardt0 = createBlock("Titleee","I am a popular Social Media Post! look at me!", "54", "", "");
+dacardt1 = createBlock("Titleeeee","I am another popular Social Media Post! look at me!", "45", "", "");
+dacardt2 = createBlock("Titleeeee","I am another popular Social Media Post! look at me!", "45", "", "");
+
+// redditsec = createSectionHead("reddit", "", "");
+dacardr = createBlock("Titleeeee","I am another popular Social Media Post! look at me!", "45", "", "", "", 0);
+dacardr2 = createBlock("Titleeeee","I am another popular Social Media Post! look at me!", "45", "", "", "", 0);
 
 var stack = [
     mainTitle,
-    line,
-    twittersec,
-    dacard,
-    dacard2,
-    dacard3
+    line(),
+    createSectionHead("twitter", "", ""),
+    dacardt0,
+    dacardt1,
+    dacardt2,
+    line(),
+    createSectionHead("reddit", "", ""),
+    dacardr,
+    dacardr2
 ]
-
 stack.forEach((thing)=>{base.appendChild(thing);})
 
 
-
-thing.insertBefore(base, thing.childNodes[0]);
-
+function line(){
+    l = document.createElement('div');
+    l.setAttribute("class", "line");
+    return l;
+}
 function createSectionHead(_title, _color, _logo){
     /// Create elements
     const card = document.createElement('div');
-    const logo = document.createElement('picture');
+    const logo = document.createElement('svg');
     const title = document.createElement('h2');
 
     /// Set styles / Attributes
@@ -40,6 +48,7 @@ function createSectionHead(_title, _color, _logo){
 
     /// Fill in body / Content
     title.textContent = _title;
+    logo.setAttribute("src", "icons/Logo_blue.svg")
 
     /// Build Card
     card.appendChild(logo);
@@ -47,7 +56,7 @@ function createSectionHead(_title, _color, _logo){
     return card;
 }
 
-function createBlock(_title, _deets, _popmet, _Author, _date, _url){
+function createBlock(_title, _deets, _popmet, _Author, _date, _url, _plat){
     /// Create elements
     const card = document.createElement('div');
     const logo = document.createElement('picture');
@@ -58,6 +67,7 @@ function createBlock(_title, _deets, _popmet, _Author, _date, _url){
     
     /// Set styles / Attributes
     card.setAttribute("class", "carddd");
+    card.style.borderColor = (_plat===0)? "rgba(255, 30, 0, 0.5)" : " rgba(0, 132, 255, 0.5)";
 
     /// Fill in body / Content
     title.textContent = _title;
