@@ -19,8 +19,6 @@
 .sectionHead {
     width: 100%;
     color: gray;
-    display: flexbox;
-    
 }
 
 .line {
@@ -42,5 +40,16 @@
 }
 
 .sectionLogo {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    margin-right: 0.5vw;
+}
 
+.sectionTitle {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
 }

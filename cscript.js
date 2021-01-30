@@ -20,12 +20,12 @@ dacardr2 = createBlock("Titleeeee","I am another popular Social Media Post! look
 var stack = [
     mainTitle,
     line(),
-    createSectionHead("twitter", "", "icons/twit.svg"),
+    createSectionHead("twitter", "", "images/twit.svg"),
     dacardt0,
     dacardt1,
     dacardt2,
     line(),
-    createSectionHead("reddit", "", "icons/redit.svg"),
+    createSectionHead("reddit", "", "images/redit.svg"),
     dacardr,
     dacardr2
 ]
@@ -49,14 +49,15 @@ function createSectionHead(_title, _color, _logo){
 
     /// Fill in body / Content
     title.textContent = _title;
+    title.setAttribute("class", "sectionTitle");
     var imgURL = chrome.runtime.getURL(_logo);
     logo.setAttribute("class", "sectionLogo");
     logo.setAttribute("src", imgURL);
-    
 
     /// Build Card
     card.appendChild(logo);
     card.appendChild(title);
+
     return card;
 }
 
