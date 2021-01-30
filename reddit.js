@@ -1,4 +1,3 @@
-
 /***
  * Retrieve reddit post data from posts relating to search term.
  * Checks "best" posts first, then searches term.
