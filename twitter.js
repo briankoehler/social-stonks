@@ -55,7 +55,7 @@ async function getTwitter(term) {
 
         let tweetData = {
             url: 'https://twitter.com/' + author.username + '/status/' + tweet.id,
-            username: author.username,
+            username: `@${author.username}`,
             profile_pic: author.profile_image_url,
             text: tweet.text,
             retweet_count: tweet.public_metrics.retweet_count,

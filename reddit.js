@@ -51,12 +51,12 @@ const getRedditPosts = async (term) => {
 			/* Push object with relevant post data */
 			let postData = {
 				title: allPosts[post]['data']['title'],
-				author: allPosts[post]['data']['author'],
+				author: `u/${allPosts[post]['data']['author']}`,
 				content: allPosts[post]['data']['selftext'],
 				commentCount: allPosts[post]['data']['num_comments'],
 				upvotes: allPosts[post]['data']['ups'],
 				upvoteRatio: allPosts[post]['data']['upvote_ratio'],
-				subreddit: allPosts[post]['data']['subreddit'],
+				subreddit: `r/${allPosts[post]['data']['subreddit']}`,
 				subredditIcon: await getSubredditIcon(allPosts[post]['data']['subreddit']),
 				url: `https://reddit.com${allPosts[post]['data']['permalink']}`,
 				utc: allPosts[post]['data']['created_utc'],

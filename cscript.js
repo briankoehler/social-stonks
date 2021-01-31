@@ -137,6 +137,7 @@ function createBlockHead(_username, _img, _subreddit, _plat) {
     const username = document.createElement('div');
     const img_container = document.createElement('div');
     const img = document.createElement('img');
+    
 
     username.textContent = _username;
     subr.textContent = _subreddit;
@@ -148,10 +149,15 @@ function createBlockHead(_username, _img, _subreddit, _plat) {
     img_container.setAttribute('class', 'img-container')
 
     cardtop.setAttribute("class", "cardTop");
+    username.style.fontWeight = "bold";
 
     cardtop.appendChild(img_container);
     if (_plat === 0) {
         cardtop.appendChild(subr);
+        subr.style.fontWeight = "bold";
+        username.style.fontWeight = "normal";
+        username.style.color = "gray";
+        // cardtop.appendChild(document.createElement('dive')); //Spacer
     }
     cardtop.appendChild(username);
 
