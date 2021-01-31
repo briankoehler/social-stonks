@@ -1,10 +1,10 @@
-const fetch = require("node-fetch")
+// const fetch = require("node-fetch")
 // let t = 'wallstreetbets'
 async function getTwitter(term) {
     // let return_tweets = [];
     let return_tweets = [];
     // https://whispering-wildwood-21421.herokuapp.com/
-    const hold = await fetch('https://api.twitter.com/2/tweets/search/recent?&query=' + term + '  is:verified lang:en&tweet.fields=public_metrics&user.fields=username,profile_image_url&expansions=author_id', {
+    const hold = await fetch('https://whispering-wildwood-21421.herokuapp.com/https://api.twitter.com/2/tweets/search/recent?&query=' + term + '  is:verified lang:en&tweet.fields=public_metrics&user.fields=username,profile_image_url&expansions=author_id', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -48,5 +48,5 @@ async function getTwitter(term) {
     return return_tweets;
 
 }
-getTwitter("wallstreetbets").then(() => { }).catch(() => { })
-// export { getTwitter };
+// getTwitter("wallstreetbets").then(() => { }).catch(() => { })
+export { getTwitter };

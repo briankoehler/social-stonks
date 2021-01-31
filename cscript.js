@@ -1,7 +1,7 @@
 import { getRedditPosts, getSubredditInfo } from './reddit.js';
 import { getTwitter } from './twitter.js';
 
-// console.log(getTwitter('GME'));
+console.log(getRedditPosts('GME'));
 
 const main = document.querySelector('body');
 const thing = document.getElementById('rhs'); //can also do rhs
@@ -21,49 +21,64 @@ let redditsec = createSectionHead("reddit", "", 0);
 // dacardr = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 0);
 // dacardr2 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 0);
 
-// var stack = [
-//     mainTitle,
-//     line(),
-//     createSectionHead("twitter", "", "images/twit.svg"),
-//     dacardt0,
-//     dacardt1,
-//     dacardt2,
-//     line(),
-//     createSectionHead("reddit", "", "images/redit.svg"),
-//     dacardr,
-//     dacardr2
-// ]
-// stack.forEach((thing)=>{base.appendChild(thing);})
-
 base.appendChild(mainTitle);
 base.appendChild(line());
 base.appendChild(twittersec);
 
 
-
-let tweets = getTwitter('GME');
-console.log(tweets);
-// console.log(tweets["1"]);
-
-tweets.forEach((tweet)=>{
-    console.log(tweet);
-    console.warn("hh");
-    base.appendChild(
-        createBlock(
-            tweet.username,
-            tweet.profile_pic,
-            "",
-            tweet.text,
-            "",
-            "",
-            tweet.retweet_count,
-            tweet.reply_count,
-            tweet.like_count,
-            1
+const populateTwit =  async()=>{
+    let tweets = await getTwitter('GME');
+    base.appendChild(twittersec);
+    tweets.forEach((tweet)=>{
+        base.appendChild(
+            createBlock(
+                tweet.username,
+                tweet.profile_pic,
+                "",
+                tweet.text,
+                "",
+                "",
+                tweet.retweet_count,
+                tweet.reply_count,
+                tweet.like_count,
+                1
+            )
         )
-    )
-})
-base.appendChild(redditsec);
+    })
+}
+
+
+
+
+const populateRed =  async()=>{
+    let posts = await getRedditPosts('GME');
+    // let subr = 
+    base.appendChild(redditsec);
+
+    posts.forEach((post)=>{
+        console.log(post);
+        base.appendChild(
+            createBlock(
+                post.author,
+                post.subredditPic,
+                post.subreddit,
+                post.title,
+                post.content,
+                post.thumbnail,
+                post.upvotes,
+                post.commentCount,
+                tweet.like_count,
+                "",
+                0
+            )
+        )
+    })
+}
+
+populateTwit();
+populateRed();
+
+
 
 function line(){
     l = document.createElement('div');
