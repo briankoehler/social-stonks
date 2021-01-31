@@ -66,9 +66,9 @@ async function getTwitter(term) {
         }
     })
 
-    console.log(return_tweets);
-    console.log("-------------------------");
-    console.log(return_tweets[0]);
+    // console.log(return_tweets);
+    // console.log("-------------------------");
+    // console.log(return_tweets[0]);
     return return_tweets;
 
 }

@@ -36,6 +36,7 @@ const populateTwit =  async()=>{
                 tweet.retweet_count,
                 tweet.reply_count,
                 tweet.like_count,
+                tweet.url,
                 1
             )
         )
@@ -60,6 +61,7 @@ const populateRed =  async()=>{
                 post.upvotes,
                 post.commentCount,
                 "",
+                post.url,
                 0
             )
         )
@@ -101,7 +103,7 @@ function createSectionHead(_title, _color, _plat){
     return card;
 }
 
-function createBlock(_username, _img, _subreddit, _title, _content, _thumbn, _upvote, _replies, _like, _plat){
+function createBlock(_username, _img, _subreddit, _title, _content, _thumbn, _upvote, _replies, _like, _url,  _plat){
     /// Plat 0 = reddit, 1 = twitter
     /// Create elements
     const card = document.createElement('div');
@@ -111,6 +113,7 @@ function createBlock(_username, _img, _subreddit, _title, _content, _thumbn, _up
 
     /// Set styles / Attributes
     card.setAttribute("class", "carddd");
+    card.setAttribute("onclick", `location.href = '${_url}'`);
     card.style.borderColor = (_plat===0)? "rgba(255, 30, 0, 0.5)" : " rgba(0, 132, 255, 0.5)";
 
     /// Build Card
