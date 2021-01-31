@@ -1,5 +1,27 @@
 
 /***
+ * Retrieve subreddit data given name found in URL
+ */
+const getSubredditIcon = async (subName) => {
+	/* Get all subreddit data */
+	const res = await fetch(`https://old.reddit.com/r/${subName}/about.json`);
+	const data = await res.json();
+
+	/* Return relevant data as object */
+	// return {
+	// 	id: data['data']['id'],
+	// 	displayName: data['data']['display_name'],
+	// 	description: data['data']['public_description'],
+	// 	icon: data['data']['icon_img'],
+	// 	subscribers: data['data']['subscribers'],
+	// 	url: `https://reddit.com${data['data']['url']}`,
+	// 	matureContent: data['data']['over18'],
+	// 	primaryColor: data['data']['primary_color']
+	// }
+	return data['data']['icon_img'];
+}
+
+/***
  * Retrieve reddit post data from posts relating to search term
  * Checks "best" posts first, then searches term.
  */
@@ -35,6 +57,7 @@ const getRedditPosts = async (term) => {
 				upvotes: allPosts[post]['data']['ups'],
 				upvoteRatio: allPosts[post]['data']['upvote_ratio'],
 				subreddit: allPosts[post]['data']['subreddit'],
+				subredditIcon: await getSubredditIcon(allPosts[post]['data']['subreddit']),
 				url: `https://reddit.com${allPosts[post]['data']['permalink']}`,
 				utc: allPosts[post]['data']['created_utc'],
 				thumbnail: allPosts[post]['data']['thumbnail']
@@ -53,25 +76,4 @@ const getRedditPosts = async (term) => {
 }
 
 
-/***
- * Retrieve subreddit data given name found in URL
- */
-const getSubredditInfo = async (subName) => {
-	/* Get all subreddit data */
-	const res = await fetch(`https://old.reddit.com/r/${subName}/about.json`);
-	const data = await res.json();
-
-	/* Return relevant data as object */
-	return {
-		id: data['data']['id'],
-		displayName: data['data']['display_name'],
-		description: data['data']['public_description'],
-		icon: data['data']['icon_img'],
-		subscribers: data['data']['subscribers'],
-		url: `https://reddit.com${data['data']['url']}`,
-		matureContent: data['data']['over18'],
-		primaryColor: data['data']['primary_color']
-	}
-}
-
-export { getRedditPosts, getSubredditInfo };
+export { getRedditPosts };
