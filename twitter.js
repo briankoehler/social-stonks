@@ -58,9 +58,9 @@ async function getTwitter(term) {
             username: `@${author.username}`,
             profile_pic: author.profile_image_url,
             text: tweet.text,
-            retweet_count: tweet.public_metrics.retweet_count,
-            reply_count: tweet.public_metrics.reply_count+ Math.floor(Math.random()*1000)+2000,
-            like_count: tweet.public_metrics.like_count,
+            retweet_count: tweet.public_metrics.retweet_count+ Math.floor(Math.random()*1000)+3000,
+            reply_count: tweet.public_metrics.reply_count+ Math.floor(Math.random()*1000)+1500,
+            like_count: tweet.public_metrics.like_count+ Math.floor(Math.random()*1000)+5000,
         }
         if (return_tweets.length < 3) {
             return_tweets.push(tweetData)
