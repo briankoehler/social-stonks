@@ -1,23 +1,3 @@
-/***
- * Retrieve subreddit data given name found in URL
- */
-const getSubredditInfo = async (subName) => {
-	/* Get all subreddit data */
-	const res = await fetch(`https://old.reddit.com/r/${subName}/about.json`);
-	const data = await res.json();
-	return data['data']['icon_img'];
-	/* Return relevant data as object */
-	// return {
-		// id: data['data']['id'],
-		// displayName: data['data']['display_name'],
-		// description: data['data']['public_description'],
-		// icon: data['data']['icon_img'],
-	// 	subscribers: data['data']['subscribers'],
-	// 	url: `https://reddit.com${data['data']['url']}`,
-	// 	matureContent: data['data']['over18'],
-	// 	primaryColor: data['data']['primary_color']
-	// }
-}
 
 /***
  * Retrieve reddit post data from posts relating to search term
@@ -46,7 +26,6 @@ const getRedditPosts = async (term) => {
 		// if (terms.some(substring => posts[post]['data']['title'].toLowerCase().includes(substring))) {
 		if (allPosts[post]['data']['title'].toLowerCase().includes(term)) {
 
-
 			/* Push object with relevant post data */
 			let postData = {
 				title: allPosts[post]['data']['title'],
@@ -66,14 +45,33 @@ const getRedditPosts = async (term) => {
 			if (posts.length == 5) {
 				return posts;
 			}
+
 		}
 	}
-	
-	console.log(posts);
+
 	return posts;
 }
 
 
+/***
+ * Retrieve subreddit data given name found in URL
+ */
+const getSubredditInfo = async (subName) => {
+	/* Get all subreddit data */
+	const res = await fetch(`https://old.reddit.com/r/${subName}/about.json`);
+	const data = await res.json();
 
+	/* Return relevant data as object */
+	return {
+		id: data['data']['id'],
+		displayName: data['data']['display_name'],
+		description: data['data']['public_description'],
+		icon: data['data']['icon_img'],
+		subscribers: data['data']['subscribers'],
+		url: `https://reddit.com${data['data']['url']}`,
+		matureContent: data['data']['over18'],
+		primaryColor: data['data']['primary_color']
+	}
+}
 
 export { getRedditPosts, getSubredditInfo };
