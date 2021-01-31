@@ -1,7 +1,7 @@
 import { getRedditPosts, getSubredditInfo } from './reddit.js';
 import { getTwitter } from './twitter.js';
 
-console.log(getTwitter('GME'));
+// console.log(getTwitter('GME'));
 
 const main = document.querySelector('body');
 const thing = document.getElementById('rhs'); //can also do rhs
@@ -39,7 +39,15 @@ base.appendChild(mainTitle);
 base.appendChild(line());
 base.appendChild(twittersec);
 
-getTwitter('GME').forEach((tweet)=>{
+
+
+let tweets = getTwitter('GME');
+console.log(tweets);
+// console.log(tweets["1"]);
+
+tweets.forEach((tweet)=>{
+    console.log(tweet);
+    console.warn("hh");
     base.appendChild(
         createBlock(
             tweet.username,
@@ -77,7 +85,7 @@ function createSectionHead(_title, _color, _plat){
     title.setAttribute("class", "sectionTitle");
 
     var imgURL = document.getElementById('cscript').getAttribute((_plat === 0)?'reditlogo':'twitlogo');
-    
+
     logo.setAttribute("class", "sectionLogo");
     logo.setAttribute("src", imgURL);
 
