@@ -48,14 +48,19 @@ const populateTwit =  async()=>{
 }
 
 
-
+// _username, _img, _subreddit, _title, _content, _thumbn, _upvote, _replies, _like, _plat
+(async()=>{
+    let test = await getRedditPosts('GME');
+    console.log(test);
+})()
 
 const populateRed =  async()=>{
     let posts = await getRedditPosts('GME');
+    console.log(posts);
     // let subr = 
     base.appendChild(redditsec);
-
     posts.forEach((post)=>{
+        console.log("ppred");
         console.log(post);
         base.appendChild(
             createBlock(
@@ -67,7 +72,6 @@ const populateRed =  async()=>{
                 post.thumbnail,
                 post.upvotes,
                 post.commentCount,
-                tweet.like_count,
                 "",
                 0
             )
