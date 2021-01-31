@@ -12,7 +12,7 @@
     align-items: stretch;
     /* Vertical s*/
     border-radius: 10px;
-    border: 1px solid gray;
+    border: 1px solid #dfe1e5;
 }
 
 .main-title {
@@ -30,7 +30,7 @@
 
 .line {
     height: 1px;
-    background: gray;
+    background: #dfe1e5;
     width: 457px;
     margin-left: -5px;
     margin-top:10px;
