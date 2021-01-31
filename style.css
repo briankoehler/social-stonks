@@ -1,7 +1,7 @@
 .baseContainer {
     box-sizing: border-box;
     padding: 5px;
-    width: 27vw;
+    width: 366px;
     height: max-content;
     display: grid;
     
@@ -17,9 +17,11 @@
 }
 
 .main-title {
-    font-size: 30px;
-    line-height: 35px;
+    font-size: 35px;
     color: rgba(0, 0, 0, 0.87);
+    font-weight: normal;
+    margin-top: 5px;
+    margin-bottom: 11px;
 }
 
 .sectionHead {
@@ -30,6 +32,8 @@
 .line {
     height: 1px;
     background: gray;
+    width: 365px;
+    margin-left: -5px;
 }
 
 .carddd {
@@ -95,5 +99,8 @@
 .sectionTitle {
     display: inline-block;
     vertical-align: middle;
-    line-height: normal;
+    font-weight: normal;
+    font-size: 24px;
+    color: #9A9DA3;
+    margin: 5px 0px;
 }

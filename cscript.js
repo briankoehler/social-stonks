@@ -14,7 +14,6 @@ const mainTitle = document.createElement('h2');
 mainTitle.setAttribute("class", "main-title")
 mainTitle.textContent = "Trending Now";
 
-<<<<<<< HEAD
 let twittersec =  createSectionHead("Twitter", "", 1);
 // dacardt0 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
 // dacardt1 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
@@ -23,10 +22,6 @@ let twittersec =  createSectionHead("Twitter", "", 1);
 let redditsec = createSectionHead("Reddit", "", 0);
 // dacardr = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 0);
 // dacardr2 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 0);
-=======
-let twittersec =  createSectionHead("twitter", "", 1);
-let redditsec = createSectionHead("reddit", "", 0);
->>>>>>> 20f3fb406ce93c954c1cc6e7cf7017436cfa8370
 
 base.appendChild(mainTitle);
 base.appendChild(line());
