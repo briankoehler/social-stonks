@@ -70,8 +70,9 @@ const populateRed = async() => {
     })
 }
 
-populateTwit();
 populateRed();
+populateTwit();
+
 
 
 function line() {
@@ -110,7 +111,7 @@ function createBlock(_username, _img, _subreddit, _title, _content, _thumbn, _up
     /// Create elements
     const card = document.createElement('div');
     const cardtop = createBlockHead(_username, _img, _subreddit, _plat); // _username, _img, _subreddit
-    const cardbody = createBlockBody(_title, _content, _thumbn); // _title, _content, _thumbn
+    const cardbody = createBlockBody(_title, _content, _thumbn, _plat); // _title, _content, _thumbn
     const cardfoot = createBlockFoot(_upvote, _replies, _like, _plat); // _upvote, _replies, _like, _plat
 
     /// Set styles / Attributes
@@ -159,7 +160,7 @@ function createBlockHead(_username, _img, _subreddit, _plat) {
     return cardtop;
 }
 
-function createBlockBody(_title, _content, _thumbn) {
+function createBlockBody(_title, _content, _thumbn, _plat) {
     const body = document.createElement('div');
     const title = document.createElement('div');
     const content = document.createElement('div');
@@ -174,6 +175,10 @@ function createBlockBody(_title, _content, _thumbn) {
     fader.setAttribute("class", "fade");
 
     body.setAttribute("class", "cardBody");
+    if (_plat === 0) {
+        title.style.fontWeight = "bold";
+    }
+
 
     body.appendChild(title);
     body.appendChild(content);
