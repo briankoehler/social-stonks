@@ -11,10 +11,17 @@ base.setAttribute("class", "baseContainer");
 thing.insertBefore(base, thing.childNodes[0]);
 
 const mainTitle = document.createElement('h2');
+mainTitle.setAttribute("class", "main-title")
 mainTitle.textContent = "Trending Now";
 
-let twittersec =  createSectionHead("twitter", "", 1);
-let redditsec = createSectionHead("reddit", "", 0);
+let twittersec =  createSectionHead("Twitter", "", 1);
+// dacardt0 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
+// dacardt1 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
+// dacardt2 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
+
+let redditsec = createSectionHead("Reddit", "", 0);
+// dacardr = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 0);
+// dacardr2 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 0);
 
 base.appendChild(mainTitle);
 base.appendChild(line());

@@ -54,6 +54,7 @@ async function getTwitter(term) {
         })
 
         let tweetData = {
+            url: 'https://twitter.com/' + author.username + '/status/' + tweet.id,
             username: author.username,
             profile_pic: author.profile_image_url,
             text: tweet.text,
@@ -61,16 +62,17 @@ async function getTwitter(term) {
             reply_count: tweet.public_metrics.reply_count,
             like_count: tweet.public_metrics.like_count,
         }
-        if(return_tweets.length < 3){
+        if (return_tweets.length < 3) {
             return_tweets.push(tweetData)
         }
     })
 
     // console.log(return_tweets);
     // console.log("-------------------------");
-    // console.log(return_tweets[0]);
     return return_tweets;
 
 }
-// getTwitter("wallstreetbets").then(() => { }).catch(() => { })
-export { getTwitter };
+
+// getTwitter("wallstreetbets").then((data) => {console.log(data);}).catch((err) => {console.log(err);})
+
+// export { getTwitter };
