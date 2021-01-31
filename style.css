@@ -4,14 +4,13 @@
     width: 366px;
     height: max-content;
     display: grid;
-    
     grid-template-rows: repeat(auto-fit, 50px);
     grid-auto-columns: 100%;
-    grid-gap: 5px; 
-    
-    justify-items: stretch; /* horizontal*/
-    align-items: stretch;  /* Vertical s*/
-
+    grid-gap: 5px;
+    justify-items: stretch;
+    /* horizontal*/
+    align-items: stretch;
+    /* Vertical s*/
     border-radius: 10px;
     border: 1px solid gray;
 }
@@ -46,32 +45,38 @@
     width: 100%;
     border-radius: 10px;
     border: 1px solid rgba(0, 132, 255, 0.5);
-
     display: grid;
     /* grid-template-rows: 1fr, 20px, 1fr;s */
     /* grid-template-columns: 100%; */
 }
 
-.cardTop{
+.cardTop {
     display: grid;
     color: green;
-    border: 1px solid red;
-    height: 20px;
+    height: 32px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     grid-template-columns: repeat(auto-fit, 50px);
     grid-template-rows: auto;
     column-gap: 10px;
-
 }
 
-.cardBody{
+.img-container {
+    height: 24px;
+    width: 24px;
+    margin: 2px;
+    margin-left: 5px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.cardBody {
     border: 1px solid blue;
     overflow: hidden;
     height: 60px;
-
 }
-.cardFoot{
+
+.cardFoot {
     height: 20px;
     width: 100%;
     display: grid;
@@ -80,7 +85,6 @@
     /* overflow: hidden; */
     grid-template-columns: repeat(auto-fit, 50px);
     grid-template-rows: auto;
-
     justify-content: space-around;
     /* column-gap: 10px; */
     border-bottom-left-radius: 10px;
@@ -88,8 +92,8 @@
 }
 
 .sectionLogo {
-    width: 24px;
-    height: 24px;
+    width: 36px;
+    height: 36px;
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
@@ -98,9 +102,9 @@
 
 .sectionTitle {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: bottom;
     font-weight: normal;
     font-size: 24px;
     color: #9A9DA3;
-    margin: 5px 0px;
+    margin: 0px 0px;
 }

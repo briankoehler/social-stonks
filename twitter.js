@@ -75,4 +75,4 @@ async function getTwitter(term) {
 
 // getTwitter("wallstreetbets").then((data) => {console.log(data);}).catch((err) => {console.log(err);})
 
-// export { getTwitter };
+export { getTwitter };

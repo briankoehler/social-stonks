@@ -14,7 +14,7 @@ const mainTitle = document.createElement('h2');
 mainTitle.setAttribute("class", "main-title")
 mainTitle.textContent = "Trending Now";
 
-let twittersec =  createSectionHead("Twitter", "", 1);
+let twittersec = createSectionHead("Twitter", "", 1);
 // dacardt0 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
 // dacardt1 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
 // dacardt2 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
@@ -28,10 +28,10 @@ base.appendChild(line());
 base.appendChild(twittersec);
 
 
-const populateTwit =  async()=>{
+const populateTwit = async() => {
     let tweets = await getTwitter(myParam);
     base.appendChild(twittersec);
-    tweets.forEach((tweet)=>{
+    tweets.forEach((tweet) => {
         base.appendChild(
             createBlock(
                 tweet.username,
@@ -50,11 +50,11 @@ const populateTwit =  async()=>{
     })
 }
 
-const populateRed =  async()=>{
+const populateRed = async() => {
     let posts = await getRedditPosts(myParam);
     // console.log(posts);
     base.appendChild(redditsec);
-    posts.forEach((post)=>{
+    posts.forEach((post) => {
         console.log("ppred");
         console.log(post);
         base.appendChild(
@@ -79,13 +79,13 @@ populateTwit();
 populateRed();
 
 
-function line(){
+function line() {
     l = document.createElement('div');
     l.setAttribute("class", "line");
     return l;
 }
 
-function createSectionHead(_title, _color, _plat){
+function createSectionHead(_title, _color, _plat) {
     /// Create elements
     const card = document.createElement('div');
     const logo = document.createElement('img');
@@ -98,7 +98,7 @@ function createSectionHead(_title, _color, _plat){
     title.textContent = _title;
     title.setAttribute("class", "sectionTitle");
 
-    var imgURL = document.getElementById('cscript').getAttribute((_plat === 0)?'reditlogo':'twitlogo');
+    var imgURL = document.getElementById('cscript').getAttribute((_plat === 0) ? 'reditlogo' : 'twitlogo');
 
     logo.setAttribute("class", "sectionLogo");
     logo.setAttribute("src", imgURL);
@@ -110,18 +110,18 @@ function createSectionHead(_title, _color, _plat){
     return card;
 }
 
-function createBlock(_username, _img, _subreddit, _title, _content, _thumbn, _upvote, _replies, _like, _url,  _plat){
+function createBlock(_username, _img, _subreddit, _title, _content, _thumbn, _upvote, _replies, _like, _url, _plat) {
     /// Plat 0 = reddit, 1 = twitter
     /// Create elements
     const card = document.createElement('div');
     const cardtop = createBlockHead(_username, _img, _subreddit, _plat); // _username, _img, _subreddit
     const cardbody = createBlockBody(_title, _content, _thumbn); // _title, _content, _thumbn
-    const cardfoot = createBlockFoot( _upvote, _replies, _like, _plat); // _upvote, _replies, _like, _plat
+    const cardfoot = createBlockFoot(_upvote, _replies, _like, _plat); // _upvote, _replies, _like, _plat
 
     /// Set styles / Attributes
     card.setAttribute("class", "carddd");
     card.setAttribute("onclick", `location.href = '${_url}'`);
-    card.style.borderColor = (_plat===0)? "rgba(255, 30, 0, 0.5)" : " rgba(0, 132, 255, 0.5)";
+    card.style.borderColor = (_plat === 0) ? "rgba(255, 30, 0, 0.5)" : " rgba(0, 132, 255, 0.5)";
 
     /// Build Card
     card.appendChild(cardtop);
@@ -131,19 +131,26 @@ function createBlock(_username, _img, _subreddit, _title, _content, _thumbn, _up
     return card;
 }
 
-function createBlockHead(_username, _img, _subreddit, _plat){
+function createBlockHead(_username, _img, _subreddit, _plat) {
     const cardtop = document.createElement('div');
     const subr = document.createElement('div');
     const username = document.createElement('div');
-    const img = document.createElement('div');
+    const img_container = document.createElement('div');
+    const img = document.createElement('img');
 
     username.textContent = _username;
     subr.textContent = _subreddit;
 
+    img.setAttribute('src', `${_img}`)
+    img.setAttribute('class', 'header-img')
+
+    img_container.appendChild(img);
+    img_container.setAttribute('class', 'img-container')
+
     cardtop.setAttribute("class", "cardTop");
 
-    cardtop.appendChild(img);
-    if(_plat === 0){
+    cardtop.appendChild(img_container);
+    if (_plat === 0) {
         cardtop.appendChild(subr);
     }
     cardtop.appendChild(username);
@@ -151,14 +158,14 @@ function createBlockHead(_username, _img, _subreddit, _plat){
     return cardtop;
 }
 
-function createBlockBody(_title, _content, _thumbn){
+function createBlockBody(_title, _content, _thumbn) {
     const body = document.createElement('div');
     const title = document.createElement('div');
     const content = document.createElement('div');
     // const thumbn = document.createElement('img');
 
     title.textContent = _title;
-    content.textContent  = _content;
+    content.textContent = _content;
     // thumbn
 
     body.setAttribute("class", "cardBody");
@@ -169,7 +176,7 @@ function createBlockBody(_title, _content, _thumbn){
     return body;
 }
 
-function createBlockFoot(_upvote, _replies, _likes, _plat){
+function createBlockFoot(_upvote, _replies, _likes, _plat) {
     const foot = document.createElement('div');
     const upv = document.createElement('div');
     const replies = document.createElement('div');
@@ -186,7 +193,7 @@ function createBlockFoot(_upvote, _replies, _likes, _plat){
 
     foot.appendChild(upv);
     foot.appendChild(replies);
-    foot.appendChild((_plat===0)? spacerR:likes);
+    foot.appendChild((_plat === 0) ? spacerR : likes);
     foot.appendChild(spacer);
 
     return foot;
