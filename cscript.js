@@ -19,12 +19,12 @@ let twittersec = createSectionHead("Twitter", "", 1);
 let redditsec = createSectionHead("Reddit", "", 0);
 
 base.appendChild(mainTitle);
-base.appendChild(line());
 base.appendChild(twittersec);
 
 
 const populateTwit = async() => {
     let tweets = await getTwitter(myParam);
+    base.appendChild(line());
     base.appendChild(twittersec);
     tweets.forEach((tweet) => {
         base.appendChild(
@@ -47,7 +47,7 @@ const populateTwit = async() => {
 
 const populateRed = async() => {
     let posts = await getRedditPosts(myParam);
-    // console.log(posts);
+    base.appendChild(line());
     base.appendChild(redditsec);
     posts.forEach((post) => {
         console.log("ppred");
@@ -184,16 +184,27 @@ function createBlockBody(_title, _content, _thumbn) {
 
 function createBlockFoot(_upvote, _replies, _likes, _plat) {
     const foot = document.createElement('div');
+
     const replies = document.createElement('div');
     const upv = document.createElement('div');
     const likes = document.createElement('div');
 
-    const icon1 = document.createElement('div');
+    const repliesT = document.createElement('div');
+    const upvT = document.createElement('div');
+    const likesT = document.createElement('div');
+
+    const icon1 = document.createElement('img');
     const icon2 = document.createElement('img');
     const icon3 = document.createElement('img');
 
     const spacer = document.createElement('div');
     const spacerR = document.createElement('div');
+
+    repliesT.textContent = _replies;
+    upvT.textContent = _upvote;
+    likesT.textContent = _likes;
+
+  
     
     var root  = document.getElementById('cscript').getAttribute('images');
     if(_plat === 0){
@@ -201,26 +212,27 @@ function createBlockFoot(_upvote, _replies, _likes, _plat) {
         icon2.setAttribute("src", `${root}reddit_upvote.svg`);
     }else{
         icon1.setAttribute("src", `${root}twitter_comment.svg`);
-        icon1.setAttribute('class', 'header-img');
         icon2.setAttribute("src", `${root}twitter_retweet.svg`);
         icon3.setAttribute("src", `${root}twitter_like.svg`);
         likes.appendChild(icon3);
     }
 
+
+    upv.setAttribute("class", "stats");
+    replies.setAttribute("class", "stats");
+    likes.setAttribute("class", "stats");
+
     replies.appendChild(icon1);
     upv.appendChild(icon2);
 
-
-    upv.setAttribute("class", "upv");
-
-    upv.textContent = _upvote;
-    replies.textContent = _replies;
-    likes.textContent = _likes;
+    replies.appendChild(repliesT);
+    upv.appendChild(upvT);
+    likes.appendChild(likesT);
 
     foot.setAttribute("class", "cardFoot");
 
-    foot.appendChild(upv);
     foot.appendChild(replies);
+    foot.appendChild(upv);
     foot.appendChild((_plat === 0) ? spacerR : likes);
     foot.appendChild(spacer);
 
