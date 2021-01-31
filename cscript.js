@@ -132,7 +132,7 @@ function createBlockHead(_username, _img, _subreddit, _plat) {
     const username = document.createElement('div');
     const img_container = document.createElement('div');
     const img = document.createElement('img');
-    
+
 
     username.textContent = _username;
     subr.textContent = _subreddit;
@@ -168,6 +168,8 @@ function createBlockBody(_title, _content, _thumbn) {
     title.textContent = _title;
     content.textContent = _content;
     // thumbn
+
+    content.setAttribute("class", "body-content");
 
     body.setAttribute("class", "cardBody");
 

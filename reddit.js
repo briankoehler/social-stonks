@@ -18,7 +18,7 @@ const getSubredditIcon = async (subName) => {
 	// 	matureContent: data['data']['over18'],
 	// 	primaryColor: data['data']['primary_color']
 	// }
-	return data['data']['icon_img'];
+	return data['data']['community_icon'].replace('amp;', '');
 }
 
 /***
