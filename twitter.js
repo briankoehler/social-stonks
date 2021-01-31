@@ -1,6 +1,6 @@
 
 // let t = 'wallstreetbets'
-const getTwitter = (term) => {
+const getTwitter = async(term) => {
 	let return_tweets = [];
 
 	fetch('https://whispering-wildwood-21421.herokuapp.com/https://api.twitter.com/2/tweets/search/recent?&query=' + term + '  is:verified lang:en&tweet.fields=public_metrics&user.fields=username,profile_image_url&expansions=author_id', {
