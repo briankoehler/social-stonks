@@ -2,7 +2,7 @@
 
 Social Stonks is a Google Chrome Extension that provides trending Twitter and Reddit posts about the searched stock ticker.
 
-# Inspiration
+## Inspiration
 
 Given recent stock market events, it is evident that social media, such as Reddit, can have a proufound effect on stocks, such as GME. When you search a stock ticker, Google provides you with graphs and news articles, however, it does not provide details about what is happening on social media that could affect the stock market behavior. Social Stonks expands the access to important stock market information beyond the traditional news sources by suggesting the most recent and most popular posts from Reddit and Twitter.
 
