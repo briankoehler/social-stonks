@@ -65,7 +65,7 @@ const getRedditPosts = async (term) => {
 			posts.push(postData);
 
 			/* Stopping if 5 posts found */
-			if (posts.length == 5) {
+			if (posts.length == 3) {
 				return posts;
 			}
 

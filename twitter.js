@@ -15,12 +15,34 @@ async function getTwitter(term) {
             // 'Access-Control-Allow-Credentials': true
         }
     });
-    console.log(hold);
-
     const data = await hold.json();
 
     let queried_tweets = data.data;
     let queried_users = data.includes.users;
+    console.log(queried_tweets[0]);
+
+    // for (let i = 0; i < 3; i++){
+    //     console.log("twwwwwweeeeeeeeee");
+    //     tweet = queried_tweets[i];
+    //     console.log(tweet);
+    //     let author;
+
+    //     queried_users.forEach(person => {
+    //         if (tweet.author_id === person.id) {
+    //             author = person;
+    //         }
+    //     })
+
+    //     let tweetData = {
+    //         username: author.username,
+    //         profile_pic: author.profile_image_url,
+    //         text: tweet.text,
+    //         retweet_count: tweet.public_metrics.retweet_count,
+    //         reply_count: tweet.public_metrics.reply_count,
+    //         like_count: tweet.public_metrics.like_count,
+    //     }
+    //     return_tweets.push(tweetData)
+    // }
 
     queried_tweets.forEach(tweet => {
         let author;
@@ -39,7 +61,9 @@ async function getTwitter(term) {
             reply_count: tweet.public_metrics.reply_count,
             like_count: tweet.public_metrics.like_count,
         }
-        return_tweets.push(tweetData)
+        if(return_tweets.length < 3){
+            return_tweets.push(tweetData)
+        }
     })
 
     console.log(return_tweets);
