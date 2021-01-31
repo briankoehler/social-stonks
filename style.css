@@ -1,7 +1,7 @@
 .baseContainer {
     box-sizing: border-box;
     padding: 5px;
-    width: 366px;
+    width: 457px;
     height: max-content;
     display: grid;
     
@@ -103,4 +103,10 @@
     font-size: 24px;
     color: #9A9DA3;
     margin: 5px 0px;
+}
+
+@media only screen and (max-width: 1365px) {
+    .baseContainer {
+        width: 369px
+    }
 }
