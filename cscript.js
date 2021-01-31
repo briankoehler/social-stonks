@@ -15,13 +15,8 @@ mainTitle.setAttribute("class", "main-title")
 mainTitle.textContent = "Trending Now";
 
 let twittersec = createSectionHead("Twitter", "", 1);
-// dacardt0 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
-// dacardt1 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
-// dacardt2 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
 
 let redditsec = createSectionHead("Reddit", "", 0);
-// dacardr = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 0);
-// dacardr2 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 0);
 
 base.appendChild(mainTitle);
 base.appendChild(line());
@@ -97,9 +92,9 @@ function createSectionHead(_title, _color, _plat) {
     /// Fill in body / Content
     title.textContent = _title;
     title.setAttribute("class", "sectionTitle");
-
-    var imgURL = document.getElementById('cscript').getAttribute((_plat === 0) ? 'reditlogo' : 'twitlogo');
-
+    
+    var root  = document.getElementById('cscript').getAttribute('images');
+    var imgURL = `${root}${(_plat === 0) ? 'redit.svg' : 'twit.svg'}`;
     logo.setAttribute("class", "sectionLogo");
     logo.setAttribute("src", imgURL);
 
@@ -184,12 +179,34 @@ function createBlockBody(_title, _content, _thumbn) {
 
 function createBlockFoot(_upvote, _replies, _likes, _plat) {
     const foot = document.createElement('div');
-    const upv = document.createElement('div');
     const replies = document.createElement('div');
+    const upv = document.createElement('div');
     const likes = document.createElement('div');
+
+    const icon1 = document.createElement('div');
+    const icon2 = document.createElement('img');
+    const icon3 = document.createElement('img');
 
     const spacer = document.createElement('div');
     const spacerR = document.createElement('div');
+    
+    var root  = document.getElementById('cscript').getAttribute('images');
+    if(_plat === 0){
+        icon1.setAttribute('src', `${root}reddit_comment.svg`);
+        icon2.setAttribute("src", `${root}reddit_upvote.svg`);
+    }else{
+        icon1.setAttribute("src", `${root}twitter_comment.svg`);
+        icon1.setAttribute('class', 'header-img');
+        icon2.setAttribute("src", `${root}twitter_retweet.svg`);
+        icon3.setAttribute("src", `${root}twitter_like.svg`);
+        likes.appendChild(icon3);
+    }
+
+    replies.appendChild(icon1);
+    upv.appendChild(icon2);
+
+
+    upv.setAttribute("class", "upv");
 
     upv.textContent = _upvote;
     replies.textContent = _replies;
