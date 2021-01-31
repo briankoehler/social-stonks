@@ -1,6 +1,6 @@
 {
-  "name": "Getting Started Example",
-  "description": "Build an Extension!",
+  "name": "Social Media Stonks",
+  "description": "Get top social media posts about stonks in a useful chrome extension!",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
@@ -8,7 +8,19 @@
   },
   "permissions": ["storage", "activeTab", "scripting", "tabs"],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/logo16.png",
+      "32": "/images/logo32.png",
+      "48": "/images/logo48.png",
+      "128": "/images/logo128.png"
+    }
+  },
+  "icons": {
+    "16": "/images/logo16.png",
+    "32": "/images/logo32.png",
+    "48": "/images/logo48.png",
+    "128": "/images/logo128.png"
   },
   "options_page": "options.html",
   "content_scripts": [
