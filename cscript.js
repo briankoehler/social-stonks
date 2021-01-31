@@ -1,7 +1,8 @@
-import { getRedditPosts, getSubredditInfo } from './reddit.js';
+import { getRedditPosts } from './reddit.js';
 import { getTwitter } from './twitter.js';
 
-console.log(getRedditPosts('GME'));
+const urlParams = new URLSearchParams(window.location.search);
+const myParam = urlParams.get('q');
 
 const main = document.querySelector('body');
 const thing = document.getElementById('rhs'); //can also do rhs
@@ -13,6 +14,7 @@ const mainTitle = document.createElement('h2');
 mainTitle.setAttribute("class", "main-title")
 mainTitle.textContent = "Trending Now";
 
+<<<<<<< HEAD
 let twittersec =  createSectionHead("Twitter", "", 1);
 // dacardt0 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
 // dacardt1 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 1);
@@ -21,6 +23,10 @@ let twittersec =  createSectionHead("Twitter", "", 1);
 let redditsec = createSectionHead("Reddit", "", 0);
 // dacardr = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 0);
 // dacardr2 = createBlock("user1", "", "r/stonks", "Example post", "stonk stonks stonks stonks", "", "5", "6", "7", 0);
+=======
+let twittersec =  createSectionHead("twitter", "", 1);
+let redditsec = createSectionHead("reddit", "", 0);
+>>>>>>> 20f3fb406ce93c954c1cc6e7cf7017436cfa8370
 
 base.appendChild(mainTitle);
 base.appendChild(line());
@@ -28,7 +34,7 @@ base.appendChild(twittersec);
 
 
 const populateTwit =  async()=>{
-    let tweets = await getTwitter('GME');
+    let tweets = await getTwitter(myParam);
     base.appendChild(twittersec);
     tweets.forEach((tweet)=>{
         base.appendChild(
@@ -48,17 +54,9 @@ const populateTwit =  async()=>{
     })
 }
 
-
-// _username, _img, _subreddit, _title, _content, _thumbn, _upvote, _replies, _like, _plat
-(async()=>{
-    let test = await getRedditPosts('GME');
-    console.log(test);
-})()
-
 const populateRed =  async()=>{
-    let posts = await getRedditPosts('GME');
-    console.log(posts);
-    // let subr = 
+    let posts = await getRedditPosts(myParam);
+    // console.log(posts);
     base.appendChild(redditsec);
     posts.forEach((post)=>{
         console.log("ppred");
@@ -66,7 +64,7 @@ const populateRed =  async()=>{
         base.appendChild(
             createBlock(
                 post.author,
-                post.subredditPic,
+                post.subredditIcon,
                 post.subreddit,
                 post.title,
                 post.content,
@@ -82,7 +80,6 @@ const populateRed =  async()=>{
 
 populateTwit();
 populateRed();
-
 
 
 function line(){
