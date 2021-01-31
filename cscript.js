@@ -163,6 +163,7 @@ function createBlockBody(_title, _content, _thumbn) {
     const body = document.createElement('div');
     const title = document.createElement('div');
     const content = document.createElement('div');
+    const fader = document.createElement('fade');
     // const thumbn = document.createElement('img');
 
     title.textContent = _title;
@@ -170,11 +171,13 @@ function createBlockBody(_title, _content, _thumbn) {
     // thumbn
 
     content.setAttribute("class", "body-content");
+    fader.setAttribute("class", "fade");
 
     body.setAttribute("class", "cardBody");
 
     body.appendChild(title);
     body.appendChild(content);
+    // content.appendChild(fader);
 
     return body;
 }
