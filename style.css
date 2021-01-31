@@ -50,6 +50,11 @@
     /* grid-template-columns: 100%; */
 }
 
+.carddd:hover {
+    cursor: pointer;
+}
+
+
 .cardTop {
     display: grid;
     height: 32px;
